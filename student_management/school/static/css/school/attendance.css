@@ -96,6 +96,12 @@
 .attendance-table td:nth-child(8) {
   width: 200px;
   text-align: center;
+
+  select {
+    color: var(--secondary-text);
+    height: 30px;
+    cursor: pointer;
+  }
 }
 
 .tracking-btn {

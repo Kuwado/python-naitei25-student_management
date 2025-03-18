@@ -123,6 +123,13 @@
   cursor: pointer;
 }
 
+.header-item select {
+  margin-left: 5px;
+  height: 30px;
+  color: var(--secondary-text);
+  cursor: pointer;
+}
+
 .header-item-icon {
   width: 30px;
   display: flex;

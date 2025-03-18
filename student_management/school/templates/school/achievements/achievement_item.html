@@ -1,0 +1,17 @@
+{% load static %} {% load i18n %} {% block css %}
+<link rel="stylesheet" href="{% static 'css\school\student.css' %}" />
+<link rel="stylesheet" href="{% static 'css\school\achievement.css' %}" />
+{% endblock %}
+
+<td>{{ index }}</td>
+<td>
+  <a class="student-item-name" href="{% url 'student-detail' achievement.student.id %}"
+    >{{achievement.student.first_name}} {{achievement.student.last_name}}</a
+  >
+</td>
+<td>{{ achievement.student.id }}</td>
+{% for grade in achievement.grades %}
+<td>{{ grade|default:"Chưa có" }}</td>
+{% endfor %}
+<td>{{ achievement.gpa|default:"Chưa có" }}</td>
+<td>{{ achievement.rank|default:"Chưa có" }}</td>

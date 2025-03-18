@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 08:37+0700\n"
+"POT-Creation-Date: 2025-03-23 18:43+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,90 +18,223 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\school\models.py:145
+#: .\student_management\school\models.py:147
 msgid "Mỗi lớp chỉ được có một giáo viên chủ nhiệm."
 msgstr "Each class can only have one homeroom teacher."
 
-#: .\school\models.py:150
+#: .\student_management\school\models.py:152
 msgid "Chỉ có giáo viên mới có thể được chỉ định vào lớp học."
 msgstr "Only teachers can be assigned to the class."
 
-#: .\school\templates\base_generic.html:5
-#: .\school\templates\other_generic.html:5
+#: .\student_management\school\templates\base_generic.html:5
+#: .\student_management\school\templates\other_generic.html:5
 msgid "Quản lý học sinh"
 msgstr "Student Management"
 
-#: .\school\templates\school\classes\class_item.html:7
-msgid "Sĩ số:"
-msgstr "Class size:"
-
-#: .\school\templates\school\classes\class_item.html:9
-msgid "Môn giảng dạy:"
-msgstr "Subjects taught:"
-
-#: .\school\templates\school\classes\class_list.html:2
-#: .\school\templates\school\includes\sidebar.html:10
-msgid "Danh sách lớp học"
-msgstr "Class list"
-
-#: .\school\templates\school\classes\class_list.html:10
-msgid "Bạn chưa có lớp nào."
-msgstr "You don't have any classes yet."
-
-#: .\school\templates\school\includes\header.html:3
-msgid "Xin chào"
-msgstr "Hello"
-
-#: .\school\templates\school\includes\header.html:5
-msgid "chúc bạn một ngày tốt lành!!!"
-msgstr "Have a nice day!!!"
-
-#: .\school\templates\school\includes\header.html:36
-msgid "Ngôn ngữ: "
-msgstr "Language: "
-
-#: .\school\templates\school\includes\header.html:43
-msgid "Đăng xuất"
-msgstr "Logout"
-
-#: .\school\templates\school\includes\sidebar.html:19
-#: .\school\templates\school\students\student_list.html:2
-msgid "Danh sách học sinh"
-msgstr "Student list"
-
-#: .\school\templates\school\includes\sidebar.html:24
-msgid "Điểm danh"
-msgstr "Attendance"
-
-#: .\school\templates\school\includes\sidebar.html:30
-msgid "Chấm điểm"
-msgstr "Grading"
-
-#: .\school\templates\school\includes\sidebar.html:35
+#: .\student_management\school\templates\school\achievements\achievement_list.html:2
+#: .\student_management\school\templates\school\includes\sidebar.html:44
 msgid "Thống kê thành tích"
 msgstr "Performance statistics"
 
-#: .\school\templates\school\registration\login.html:2
-#: .\school\templates\school\registration\login.html:10
-msgid "Đăng nhập"
-msgstr "Login"
+#: .\student_management\school\templates\school\achievements\achievement_list.html:12
+#: .\student_management\school\templates\school\attendances\attendance_tracking.html:10
+#: .\student_management\school\templates\school\grades\grade_list.html:10
+#: .\student_management\school\templates\school\students\student_list.html:10
+msgid "Nhập tên học sinh"
+msgstr "Enter student's name"
 
-#: .\school\templates\school\registration\login.html:15
-msgid "Tên đăng nhập"
-msgstr "Username"
+#: .\student_management\school\templates\school\achievements\achievement_list.html:24
+#: .\student_management\school\templates\school\attendances\attendance_tracking.html:15
+#: .\student_management\school\templates\school\grades\grade_list.html:15
+#: .\student_management\school\templates\school\students\student_list.html:15
+msgid "Tất cả"
+msgstr "See all"
 
-#: .\school\templates\school\registration\login.html:20
-msgid "Mật khẩu"
-msgstr "Password"
+#: .\student_management\school\templates\school\achievements\achievement_list.html:35
+msgid "Sắp xếp:"
+msgstr "Sort by: "
 
-#: .\school\templates\school\registration\login.html:26
-msgid "Đăng Nhập"
-msgstr "Login"
+#: .\student_management\school\templates\school\achievements\achievement_list.html:37
+#, fuzzy
+msgid "Điểm tăng dần"
+msgstr "Ascending Score"
 
-#: .\school\templates\school\students\student_list.html:12
+#: .\student_management\school\templates\school\achievements\achievement_list.html:38
+#, fuzzy
+msgid "Điểm giảm dần"
+msgstr "Descending Score"
+
+#: .\student_management\school\templates\school\achievements\achievement_list.html:39
+msgid "Theo số thứ tự"
+msgstr "By number"
+
+#: .\student_management\school\templates\school\achievements\achievement_list.html:44
+msgid "Kỳ học:"
+msgstr "Semester: "
+
+#: .\student_management\school\templates\school\achievements\achievement_list.html:70
+#: .\student_management\school\templates\school\attendances\attendance_tracking.html:37
+#: .\student_management\school\templates\school\grades\grade_list.html:38
+#: .\student_management\school\templates\school\students\student_list.html:31
 msgid "Lớp không có học sinh."
 msgstr "This class has no students."
 
-#: .\school\views\auth_views.py:21
+#: .\student_management\school\templates\school\achievements\achievement_list_header.html:7
+#: .\student_management\school\templates\school\attendances\attendance_list_header.html:6
+#: .\student_management\school\templates\school\grades\grade_list_header.html:6
+#: .\student_management\school\templates\school\students\student_list_header.html:6
+msgid "STT"
+msgstr "No"
+
+#: .\student_management\school\templates\school\achievements\achievement_list_header.html:8
+#: .\student_management\school\templates\school\attendances\attendance_list_header.html:8
+#: .\student_management\school\templates\school\grades\grade_list_header.html:7
+#: .\student_management\school\templates\school\students\student_list_header.html:7
+msgid "Họ và tên"
+msgstr "Full name"
+
+#: .\student_management\school\templates\school\achievements\achievement_list_header.html:9
+#: .\student_management\school\templates\school\attendances\attendance_list_header.html:9
+#: .\student_management\school\templates\school\grades\grade_list_header.html:8
+#: .\student_management\school\templates\school\students\student_list_header.html:8
+msgid "Mã số học sinh"
+msgstr "Student Number"
+
+#: .\student_management\school\templates\school\achievements\achievement_list_header.html:13
+msgid "GPA"
+msgstr "GPA"
+
+#: .\student_management\school\templates\school\achievements\achievement_list_header.html:14
+msgid "Xếp loại"
+msgstr "Classification"
+
+#: .\student_management\school\templates\school\attendances\attendance_list_header.html:7
+msgid "Ảnh đại diện"
+msgstr "Avatar"
+
+#: .\student_management\school\templates\school\attendances\attendance_list_header.html:10
+msgid "Đi muộn"
+msgstr "Late"
+
+#: .\student_management\school\templates\school\attendances\attendance_list_header.html:11
+msgid "Nghỉ có phép"
+msgstr "Excused"
+
+#: .\student_management\school\templates\school\attendances\attendance_list_header.html:12
+msgid "Nghỉ không phép"
+msgstr "Absent"
+
+#: .\student_management\school\templates\school\attendances\attendance_list_header.html:13
+#: .\student_management\school\templates\school\attendances\attendance_tracking.html:2
+#: .\student_management\school\templates\school\attendances\attendance_tracking.html:44
+#: .\student_management\school\templates\school\includes\sidebar.html:27
+msgid "Điểm danh"
+msgstr "Attendance"
+
+#: .\student_management\school\templates\school\classes\class_item.html:7
+msgid "Sĩ số:"
+msgstr "Class size:"
+
+#: .\student_management\school\templates\school\classes\class_item.html:9
+msgid "Môn giảng dạy:"
+msgstr "Subjects taught:"
+
+#: .\student_management\school\templates\school\classes\class_list.html:4
+#: .\student_management\school\templates\school\includes\sidebar.html:10
+msgid "Danh sách lớp học"
+msgstr "Class list"
+
+#: .\student_management\school\templates\school\classes\class_list.html:14
+msgid "Bạn chưa có lớp nào."
+msgstr "You don't have any classes yet."
+
+#: .\student_management\school\templates\school\grades\grade_list.html:2
+#: .\student_management\school\templates\school\grades\grade_list.html:45
+#: .\student_management\school\templates\school\includes\sidebar.html:36
+msgid "Chấm điểm"
+msgstr "Grading"
+
+#: .\student_management\school\templates\school\grades\grade_list.html:19
+msgid "Môn học:"
+msgstr "Subject:"
+
+#: .\student_management\school\templates\school\grades\grade_list_header.html:9
+#, fuzzy
+msgid "Điểm miệng"
+msgstr "Oral score"
+
+#: .\student_management\school\templates\school\grades\grade_list_header.html:10
+#, fuzzy
+msgid "Điểm 15 phút"
+msgstr "Fifteen minute score"
+
+#: .\student_management\school\templates\school\grades\grade_list_header.html:11
+msgid "Điểm 1 tiết"
+msgstr "One period score"
+
+#: .\student_management\school\templates\school\grades\grade_list_header.html:12
+msgid "Điểm giữa kỳ"
+msgstr "Midterm score"
+
+#: .\student_management\school\templates\school\grades\grade_list_header.html:13
+msgid "Điểm cuối kỳ"
+msgstr "Final score"
+
+#: .\student_management\school\templates\school\grades\grade_list_header.html:14
+msgid "Điểm tổng kết"
+msgstr "Final grade"
+
+#: .\student_management\school\templates\school\includes\header.html:3
+msgid "Xin chào"
+msgstr "Hello"
+
+#: .\student_management\school\templates\school\includes\header.html:5
+msgid "chúc bạn một ngày tốt lành!!!"
+msgstr "Have a nice day!!!"
+
+#: .\student_management\school\templates\school\includes\header.html:37
+msgid "Ngôn ngữ: "
+msgstr "Language: "
+
+#: .\student_management\school\templates\school\includes\header.html:53
+msgid "Đăng xuất"
+msgstr "Logout"
+
+#: .\student_management\school\templates\school\includes\sidebar.html:19
+#: .\student_management\school\templates\school\students\student_detail.html:2
+#: .\student_management\school\templates\school\students\student_list.html:2
+msgid "Danh sách học sinh"
+msgstr "Student list"
+
+#: .\student_management\school\templates\school\registration\login.html:2
+#: .\student_management\school\templates\school\registration\login.html:10
+msgid "Đăng nhập"
+msgstr "Login"
+
+#: .\student_management\school\templates\school\registration\login.html:15
+msgid "Tên đăng nhập"
+msgstr "Username"
+
+#: .\student_management\school\templates\school\registration\login.html:20
+msgid "Mật khẩu"
+msgstr "Password"
+
+#: .\student_management\school\templates\school\registration\login.html:26
+msgid "Đăng Nhập"
+msgstr "Login"
+
+#: .\student_management\school\templates\school\students\student_list_header.html:9
+msgid "Ngày sinh"
+msgstr "Birthday"
+
+#: .\student_management\school\templates\school\students\student_list_header.html:10
+msgid "Số điện thoại"
+msgstr "Phone number"
+
+#: .\student_management\school\templates\school\students\student_list_header.html:11
+msgid "Địa chỉ"
+msgstr "Address"
+
+#: .\student_management\school\views\auth_views.py:21
 msgid "Email hoặc mật khẩu không đúng!"
 msgstr "Email or password is incorrect!"

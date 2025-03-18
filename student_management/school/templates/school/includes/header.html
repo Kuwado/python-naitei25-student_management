@@ -30,12 +30,22 @@
         <div class="header-email">{{ request.user.username }}</div>
       </div>
     </div>
-
-    <div class="header-item">
+    
+    <form class="header-item" action="{% url 'set_language' %}" method="post">
+      {% csrf_token %}
       <span class="header-item-icon"><i class="fa-solid fa-language"></i></span>
-      <span class="header-item-name">{% trans "Ngôn ngữ: " %}{{language}}</span>
-    </div>
-
+      <span class="header-item-name">{% trans "Ngôn ngữ: " %}</span>
+      <select name="language" onchange="this.form.submit()">
+          {% get_current_language as LANGUAGE_CODE %}
+          {% get_available_languages as LANGUAGES %}
+          {% for lang in LANGUAGES %}
+              <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>
+                  {{ lang.1 }}
+              </option>
+          {% endfor %}
+      </select>
+    </form>
+    
     <form action="{% url 'logout' %}" method="POST">
       {% csrf_token %}
       <button class="header-item" type="submit">

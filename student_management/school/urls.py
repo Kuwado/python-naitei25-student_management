@@ -1,13 +1,14 @@
 from django.urls import path, include
-
-# from . import views
+from django.conf.urls.i18n import set_language
 from school.views import auth_views, teacher_view, action_views
+
 
 # Khai báo view tương ứng với url
 urlpatterns = [
     path("", teacher_view.ClassListView.as_view(), name="class-list"),
     path("login/", auth_views.login_view, name="login"),
     path("logout/", auth_views.logout_view, name="logout"),
+    path("set-language/", set_language, name="set_language"),
     path(
         "class/<int:class_id>/semester/<int:semester_id>/",
         teacher_view.StudentListView.as_view(),
@@ -27,5 +28,20 @@ urlpatterns = [
         "attendance/tracking/",
         action_views.post_attendance,
         name="tracking",
+    ),
+    path(
+        "class/<int:class_id>/semester/<int:semester_id>/subject/<int:subject_id>",
+        teacher_view.GradeView.as_view(),
+        name="grade",
+    ),
+    path(
+        "grade/update/",
+        action_views.post_grade,
+        name="grade-update",
+    ),
+    path(
+        "class/<int:class_id>/achievements/semester/<int:semester_id>",
+        teacher_view.achievement_view,
+        name="achievements",
     ),
 ]

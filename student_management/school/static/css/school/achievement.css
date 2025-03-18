@@ -1,0 +1,148 @@
+.achievement-list-page {
+  width: 100%;
+  height: fit-content;
+  padding: 20px;
+}
+
+.achievement-date {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--secondary-text);
+  font-weight: bold;
+}
+
+.achievement-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--primary);
+  color: var(--secondary-text);
+  background-color: var(--secondary);
+}
+
+.achievement-table tr {
+  height: 60px;
+}
+
+.achievement-table th,
+.achievement-table td {
+  border: 1px solid var(--primary);
+  padding: 10px;
+  text-align: left;
+}
+
+.achievement-table th {
+  font-size: calc(var(--font-size) + 2px);
+  font-weight: bold;
+  background-color: var(--secondary);
+}
+
+.achievement-table tr:nth-child(odd) {
+  background-color: var(--primary-background);
+}
+
+.achievement-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.achievement-table td:nth-child(n + 4),
+.achievement-table th:nth-child(n + 4) {
+  max-width: 80px;
+  width: 80px;
+  text-align: center;
+}
+
+/* Stt */
+.achievement-table th:first-child,
+.achievement-table td:first-child {
+  width: 50px;
+  text-align: center;
+}
+
+/* Họ tên */
+.achievement-table th:nth-child(2),
+.achievement-table td:nth-child(2) {
+  width: 250px;
+}
+
+.achievement-item-name {
+  color: var(--secondary-text);
+}
+
+.achievement-item-name:hover {
+  font-weight: bold;
+}
+
+/* MSHS */
+.achievement-table th:nth-child(3),
+.achievement-table td:nth-child(3) {
+  width: max-content;
+}
+
+.achievement-action {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  padding-bottom: 20px;
+}
+
+.achievement-search {
+  width: 38%;
+  display: flex;
+  gap: 20px;
+}
+
+.student-search {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+  height: 40px;
+
+  border-radius: 999px;
+  background-color: var(--secondary);
+}
+
+.student-search input {
+  width: 100%;
+  height: 100%;
+  padding-left: 15px;
+  padding-right: 40px;
+  color: var(--secondary-text);
+}
+
+.student-search button {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.student-search button:hover {
+  opacity: 0.8;
+}
+
+.all-btn {
+  display: flex;
+  align-items: center;
+}
+
+.achievement-sort-form,
+.achievement-semester {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--secondary-text);
+
+  div {
+    font-weight: bold;
+  }
+
+  select {
+    color: var(--secondary-text);
+    height: 30px;
+    cursor: pointer;
+  }
+}

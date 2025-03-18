@@ -1,0 +1,76 @@
+{% extends "base_generic.html" %} {% load static %} {% load i18n %} {% block title %}
+<title>{% trans "Thống kê thành tích" %}</title>
+{% endblock %} {% block css %}
+<link rel="stylesheet" href="{% static 'css\school\student.css' %}" />
+<link rel="stylesheet" href="{% static 'css\school\achievement.css' %}" />
+{% endblock %} {% block content %}
+
+<div class="achievement-list-page">
+  <div class="achievement-action">
+    <div class="achievement-search">
+        <form class="student-search" method="GET" action="{% url 'achievements' class_id current_semester_id %}">
+          <input type="text" name="student_name" placeholder="{% trans 'Nhập tên học sinh' %}" value="{{ query }}" />
+    
+          {% for key, value in request.GET.items %}
+          {% if key != "student_name" %}
+          <input type="hidden" name="{{ key }}" value="{{ value }}">
+          {% endif %}
+          {% endfor %}
+    
+          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    
+        <a class="primary-btn medium-btn default-btn all-btn" href="{% url 'achievements' class_id semester_id %}"
+          >{% trans "Tất cả" %}</a
+        >
+    </div>
+
+    <form class="achievement-sort-form" method="GET" action="{% url 'achievements' class_id=class_id semester_id=current_semester_id %}">
+        {% for key, value in request.GET.items %}
+            {% if key != "sort_by" %} 
+                <input type="hidden" name="{{ key }}" value="{{ value }}">
+            {% endif %}
+        {% endfor %}
+
+        <div>{% trans "Sắp xếp:" %}</div>
+        <select class="achievement-sort-selection" name="sort_by" onchange="this.form.submit()">
+            <option value="asc" {% if request.GET.sort_by == "asc" %}selected{% endif %}>{% trans "Điểm tăng dần" %}</option>
+            <option value="desc" {% if request.GET.sort_by == "desc" %}selected{% endif %}>{% trans "Điểm giảm dần" %}</option>
+            <option value="" {% if not request.GET.sort_by %}selected{% endif %}>{% trans "Theo số thứ tự" %}</option>
+        </select>
+    </form>
+
+    <div class="achievement-semester">
+        <div>{% trans "Kỳ học:" %}</div>
+        <select class="achievement-semester-selection" onchange="window.location.href=this.value">
+            {% for semester in semesters %}
+                <option value="{% url 'achievements' class_id=class_id semester_id=semester.id %}?{{ request.GET.urlencode }}"
+                    {% if current_semester_id == semester.id %}selected{% endif %}>
+                    {{ semester.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+    
+    
+  </div>
+
+  <table class="achievement-table">
+    <thead>
+      {% include "school\achievements\achievement_list_header.html" with subjects=subjects %}
+    </thead>
+
+    <tbody>
+      {% for achievement in achievements %}
+      <tr>
+        {% include "school\achievements\achievement_item.html" with achievement=achievement index=forloop.counter %}
+      </tr>
+      {% empty %}
+      <tr>
+        <p>{% trans "Lớp không có học sinh." %}</p>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
